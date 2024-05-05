@@ -13,16 +13,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late TextEditingController plainTextController;
-  late TextEditingController keyController;
+  final plainTextController = TextEditingController();
+  final keyController = TextEditingController();
   CryptoOperation operation = CryptoOperation.encrypt;
-
-  @override
-  void initState() {
-    super.initState();
-    plainTextController = TextEditingController();
-    keyController = TextEditingController();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -180,12 +173,5 @@ class _MyHomePageState extends State<MyHomePage> {
   encrypt.Key getKeyFromUtf8String(String keyString) {
     final keyBytes = utf8.encode(keyString);
     return encrypt.Key(Uint8List.fromList(keyBytes));
-  }
-
-  @override
-  void dispose() {
-    plainTextController.dispose();
-    keyController.dispose();
-    super.dispose();
   }
 }
