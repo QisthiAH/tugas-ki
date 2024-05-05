@@ -176,6 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+// fungsi untuk mengonversi kunci yang diinputkan menjadi byte binner
   encrypt.Key getKeyFromUtf8String(String keyString) {
     final keyBytes = utf8.encode(keyString);
     return encrypt.Key(Uint8List.fromList(keyBytes));
